@@ -1,0 +1,92 @@
+pipeline{
+
+agent any
+
+
+stages{
+
+stage("clone"){
+steps{
+git "https://github.com/varunlamp/semaphore-demo-python-django.git"
+
+post{
+
+success{
+echo "====++++clone executed successfully++++===="
+}
+failure{
+echo "====++++clone execution failed++++===="
+}
+}
+}
+}
+stage("docker container"){
+steps{
+sh "docker run -itd -p 8732:8732 --name semaphore python:3.10-buster "
+post{
+
+success{
+echo "====++++docker container executed successfully++++===="
+sh " docker exec -it semaphore /bin/bash"
+}
+failure{
+echo "====++++docker container execution failed++++===="
+}
+
+}
+}
+}
+stage("dependency"){
+
+steps{
+sh "pip install -r requirement.txt"
+
+post{
+
+success{
+echo "====++++manage executed successfully++++===="
+}
+failure{
+echo "====++++manage execution failed++++===="
+}
+
+}
+}
+}
+stage("db "){
+steps{
+sh "python manage.py migrate"
+
+post{
+
+success{
+echo "====++++manage executed successfully++++===="
+}
+failure{
+echo "====++++manage execution failed++++===="
+}
+
+}
+}
+}
+stage("build"){
+steps{
+sh "python manage.py runserver 0.0.0.0:8732"
+
+post{
+
+success{
+echo "====++++build executed successfully++++===="
+}
+failure{
+echo "====++++build execution failed++++===="
+}
+
+}
+}
+
+}
+}
+
+
+}
