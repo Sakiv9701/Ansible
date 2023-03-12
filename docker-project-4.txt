@@ -1,0 +1,59 @@
+ 1  ls
+    2  exit
+    3  docker ps
+    4  exit
+    5  ls
+    6  vi Dockerfile
+    7  docker ps
+    8  docker images
+    9  docker ps
+   10  ls
+   11  docker ps
+   12  docker images
+   13  docker --help
+   14  exit
+   15  ssh 172.31.13.5
+   16  exit
+   17  ssh 172.31.13.5
+   18  exit
+   19  ssh 172.31.13.5
+   20  ssh-keygen
+   21  ls
+   22  cd .ssh/
+   23  ls
+   24  ssh-copy-id dockeradmin@172.31.13.5
+   25  cd
+   26  ssh 172.31.13.5
+   27  ansible -m ping all
+   28  ls
+   29  rm -rf .
+   30  rm -rf *
+   31  docker ps -a
+   32  docker rm -f $(docker ps -aq)
+   33  docker rmi -f $(docker images -q)
+   34  docker ps -a
+   35  docker images
+   36  ls
+   37  docker login
+   38  vi playbook.yml
+   39  ansible-playbook playbook.yml --syntax.check
+   40  ansible-playbook playbook.yml --syntax-check
+   41  ansible -m ping all
+   42  history
+   43  cat playbook.yml
+   44  vi playbook.yml
+   45  ansible-playbook playbook.yml --syntax-check
+   46  docker run -itd --name previous -p 8095:8080 raisakiv023/project-4
+   47  docker run -itd --name previous -p 8095:8080 raisakiv023/project-4:v1.2
+   48  docker ps
+   49  docker rm -f 46f38ec3378f
+   50  docker ps
+   51  docker images
+   52  docker run -itd --name previous -p 8092:8080 raisakiv023/project-4:v1.4
+   53  docker run -itd --name previous -p 8090:8080 raisakiv023/project-4:v1.5
+   54  docker ps
+   55  docker rm -f 0e6cdb6f123c
+   56  docker ps
+   57  docker run -itd --name previous -p 8090:8080 raisakiv023/project-4:v1.5
+   58  docker ps
+   59  docker images
